@@ -1,4 +1,4 @@
-continuous merging small files into HDFS using streaming API and cron
+Continuous merging small files into HDFS using streaming API and cron
 
 step 1 : create a tmp directory
 hadoop fs -mkdir tmp
@@ -46,10 +46,14 @@ wait
 /home/abc/hadoop-2.6.0/bin/hadoop fs -rm tmp/*.txt
 
 step 2: schedule the script using cron to run every minute using cron expression
+
 a) edit crontab by choosing an editor
+
 >crontab -e
+
 b) add the following line at the end and exit from the editor
 * * * * * /bin/bash /home/abc/mergejob.sh > /dev/null 2>&1
+
 The merge job will be scheduled to run for every minute.
 Hope this was helpful.
 
